@@ -1,4 +1,3 @@
-import { formatDate } from "../../helpers/formatDate.js";
 import styles from "./styles.module.css";
 
 const Skeleton = ({ count = 1, type = "banner" }) => {
