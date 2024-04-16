@@ -3,7 +3,12 @@ import axios from "axios";
 const BASE_URL = import.meta.env.VITE_NEWS_BASE_API_URL;
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
-export const getNews = async ({ pageNumber = 1, pageSize = 10, category, keywords }) => {
+export const getNews = async ({
+  pageNumber = 1,
+  pageSize = 10,
+  category,
+  keywords,
+}) => {
   try {
     const response = await axios.get(`${BASE_URL}/search`, {
       params: {
@@ -12,6 +17,19 @@ export const getNews = async ({ pageNumber = 1, pageSize = 10, category, keyword
         page_size: pageSize,
         category,
         keywords,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getLatestNews = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/latest-news`, {
+      params: {
+        apiKey: API_KEY,
       },
     });
     return response.data;
