@@ -18,7 +18,7 @@ const Categories = ({ categories, selectedCategory, setSelectedCategory }) => {
               selectedCategory === category ? styles.active : styles.item
             }
           >
-            {category}
+            {category[0].toUpperCase() + category.slice(1)}
           </button>
         );
       })}
